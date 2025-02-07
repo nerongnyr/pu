@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            background-color: #eee;
+            display: flex;
+            justify-content: row;
+        }
+        .box {
+            text-align: center;
+            width: 70px;
+            padding: 10px 40px;
+            margin: 5px;
+            background-color: aliceblue;
+        }
+        .contents1 {
+            justify-content: center;
+        }
+        .contents2 {
+            justify-content: space-around;
+        }
+        .contents3 {
+            justify-content: space-evenly;
+        }
+        .contents4 {
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="contents2">
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+    </div>
+    <div id="container" class="contents3">
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+    </div>
+    <div id="container" class="contents4">
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+    </div>
+</body>
+</html>
