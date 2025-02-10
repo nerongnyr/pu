@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <img src="../day4/img/tws.jpg" id="image" onclick="changeImg()">
+</body>
+</html>
+<script>
+    function changeImg() {
+        let img = document.getElementById("image")
+
+        if (img.src.includes("../day4/img/tws.jpg")) {
+            img.src = "../day2/media/goyang.jpg"
+        } else {
+            img.src = "../day4/img/tws.jpg"
+        }
+    }
+</script>
