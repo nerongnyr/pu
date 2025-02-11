@@ -160,9 +160,14 @@
     </div>
 
     <script>
-        function changeBook(imageSrc) {
-            let productImage = document.getElementById('java');
-            productImage.src = imageSrc;
+        let java = document.querySelector('#java');
+        let smallJava = document.querySelectorAll(".small");
+        for(let i=0; i<smallJava.length; i++) {
+            smallJava[i].onclick = function() {
+                let temp = this.src;
+                this.src = java.src;
+                java.src = temp;
+            }
         }
 
         function detail() {
