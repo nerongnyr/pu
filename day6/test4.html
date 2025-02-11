@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title onclick="fnImg()">Document</title>
+</head>
+<body>
+    <div><input type="radio" name="subject" value="java">자바</div>
+    <div><input type="radio" name="subject" value="oracle">오라클</div>
+    <div><input type="radio" name="subject" value="html/css/javascript">html/css/javascript</div>
+    <div><input type="radio" name="subject" value="jquery">jquery</div>
+    <div><button onclick="fnImg()">클릭!</button></div>
+    <div id="image">
+        <img src="" width="300px" height="300px" style="display: none;" alt="이미지">
+    </div>
+</body>
+</html>
+<script>
+    function fnImg() {
+        let subject = document.querySelector("input[name='subject']:checked").value;
+        let image = document.querySelector("img");
+
+        if (!subject) {
+            alert("과목을 선택해주세요.");
+            return;
+        }
+
+        image.style.display = "inline";
+        image.src = "img/" + subject + ".jpg"
+
+        // if(subject == 'java') {
+        //     img.src = 'img/java.jpg'         
+        // } else if(subject == 'oracle') {
+        //     img.src = 'img/oracle.jpg'
+        // } else if(subject == 'hcj') {
+        //     img.src = 'img/js.jpg'
+        // } else if(subject == 'jquery') {
+        //     img.src = 'img/jquery.jpg'
+        // }
+    }
+</script>
