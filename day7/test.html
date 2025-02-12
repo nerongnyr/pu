@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 50px;
+        }
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>메모장</h1>
+        <input type="text" id="memoInput">
+        <button onclick="addMemo()">추가</button>
+        <ul id="memoList"></ul>
+    </div>
+</body>
+</html>
+<script>
+    function addMemo() {
+        let memoInput = document.getElementById('memoInput');
+        let memoText = memoInput.value;
+
+        if(memoText) {
+            const memoList = document.getElementById('memoList');
+
+            const listItem = document.createElement('li');
+            listItem.textContent = memoText;
+
+            listItem.onclick = function() {
+                this.remove();
+            }
+
+            memoList.appendChild(listItem);
+        }
+        
+    }
+</script>

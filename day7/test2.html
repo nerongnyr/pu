@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 50px;
+        }
+        li {
+            cursor: pointer;
+        }
+    </style>
+    <link rel="stylesheet" 
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <div>
+        <h1>메모장</h1>
+        <input type="text" id="memoInput">
+        <button onclick="addMemo()">추가</button>
+    </div>
+    <ul id="memoList">
+        
+    </ul>
+</body>
+</html>
+<script>
+    let list = document.querySelector("#memoList")
+    function addMemo() {
+        let txt = document.querySelector("#memoInput").value;
+
+        let item = document.createElement('li');
+        item.innerHTML = txt + '<span class="material-symbols-outlined">delete</span>';
+
+        item.onclick = function(e) {
+            if(!confirm("정말 삭제하시겠습니까?")) {
+                return
+            };
+            list.removeChild(e.target);
+        }
+
+        list.appendChild(item)
+        document.querySelector("#memoInput").value = "";
+    }
+</script>
