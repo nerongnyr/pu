@@ -74,5 +74,12 @@
         }
 
         alert("회원가입이 완료되었습니다.")
+
+        var pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+        pattern.test("abcd1234!");
+        if(pattern.test(userId)) {
+            alert("아이디에는 특수문자 사용 불가!")
+            return;
+        }
     }
 </script>

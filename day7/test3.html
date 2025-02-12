@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label > span {
+            display: inline-block;
+            width: 120px;          
+        }
+        button {
+            margin-top: 30px;
+            margin-left: 110px;
+        }
+        div {
+            margin: 5px;
+        }
+        body {
+            margin-top: 60px;
+            margin-left: 110px;
+        }
+        button {
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            background-color: #3b6fdf;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #3b6fdf;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label> <span>아이디 : </span>
+            <input id="userId">
+        </label>
+    </div>
+    <div>
+        <label><span>비밀번호 : </span>
+            <input type="password" id="pwd1">
+        </label>
+    </div>
+    <div>
+        <label><span>비밀번호 확인 : </span>
+            <input type="password" id="pwd2">
+        </label>
+    </div>
+    <div>
+        <label><span>핸드폰 번호 : </span>
+            <input type="text" id="phoneNumber" placeholder="- 없이 숫자만 입력하세요">
+        </label>
+    </div>
+    <div><span>관심 언어 : </span>
+        <label><input type="checkbox" id="java">자바</label>
+        <label><input type="checkbox" id="oracle">오라클</label>
+        <label><input type="checkbox" id="html">html</label>
+        <label><input type="checkbox" id="python">python</label>
+    </div>
+    <div>
+        <label><span>성별 : </span></label>
+        <label><input type="radio" name="gender" value="m"> 남자</label>
+        <label><input type="radio" name="gender" value="f" checked> 여자</label>
+    </div>
+    <div>
+        <button onclick="fnJoin()">회원가입!</button>
+    </div>
+</body>
+</html>
+<script>
+    function fnJoin(){
+        // 아이디는 최소 6글자 이상
+        let userId = document.querySelector("#userId").value;
+        let userIdRegex = /^[a-z0-9]{6,}$/;
+        if(!userIdRegex.test(userId)){
+            alert("아이디는 6글자 이상, 숫자와 영어 소문자로만 구성되어야 합니다");
+            return;
+        }
+
+        // 패스워드: 6글자 이상, 특수문자 포함
+        let pwd1 = document.querySelector("#pwd1").value;
+        let pwd2 = document.querySelector("#pwd2").value;
+        let pwdRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{6,}$/;
+        if(pwd1 != pwd2){
+            alert("비밀번호가 다릅니다");
+            return;
+        }
+        if(!pwdRegex.test(pwd1)){
+            alert("비밀번호는 6글자 이상이여야 하고, 특수문자를 최소 1개 포함해야 합니다.");
+            return;
+        }
+
+        // 핸드폰 번호: 11글자 숫자만
+        let phoneNumber = document.querySelector("#phoneNumber").value;
+        if(phoneNumber.length !== 11) {
+            alert("핸드폰 번호는 11자리 숫자만 입력 가능합니다")
+            return;
+        }
+
+        // 관심 언어: 최소 1개 선택
+        let checkbox = document.querySelectorAll('input[type="checkbox"]')
+        let selected = false;
+        
+
+        // 성별: 기본적으로 하나가 선택되어 있음 (남자 체크)
+        let genderSelected = document.querySelector('input[name="gender"]:checked');
+        if (!genderSelected) {
+            alert("성별을 선택해주세요.");
+            return;
+        }
+
+        alert("회원가입 성공!");
+        window.open('main.html');
+
+    }
+</script>
