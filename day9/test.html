@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>온라인 프로필</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        table {
+            width: 90%;
+            border: 1px solid #222;
+            border-collapse: collapse;
+            margin: 20px;
+            box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background: #ffb6c1;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 1em;
+            text-align: center;
+        }
+        th {
+            background-color: #ffb6c1;
+            color: white;
+        }
+
+        td {
+            background-color: #ffe6f2;
+        }
+        table caption {
+            font-size: 20px;
+            color: #ff69b4;
+            font-weight: bold;
+        }
+
+        #container {
+            display: flex;
+            width: 100%;
+            margin: 30px auto;
+            border-radius: 15px;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        #side {
+            width: 280px;
+            background-color:#ffefff;
+            float: left;
+            box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+            padding: 30px;
+            margin-right: 10px;
+        }
+
+        #contents {
+            width: 60%;
+            height: 95%;
+            background-color: #eee;
+            float: left;
+            color: #333;
+        }
+
+        #side ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #side ul li {
+            margin-bottom: 15px;
+        }
+
+        #side ul li a {
+            font-size: 18px;
+            color: #fd39a2;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #side ul li a:hover {
+            background-color: #ffb6c1;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #ff69b4;
+            border-bottom: 2px solid #ffb6c1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        section {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* 메뉴 스타일 */
+        #menu {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            background-color: #ffb6c1;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #menu a:hover {
+            background-color: #fd39a2;
+        }
+
+        /* Dark/Light Mode 스타일 */
+        .dark-mode #side {
+            background-color: #222;
+            color: #e0e0e0;
+        }
+
+        .dark-mode #side ul li a {
+            color: #e0e0e0;
+        }
+
+        .light-mode #side {
+            background-color: #ffefff;
+            color: #333;
+        }
+
+        .light-mode #side ul li a {
+            color: #fd39a2;
+        }
+
+        /* Add other styles here as before */
+    </style>
+</head>
+<body class="light-mode">
+    <div id="container">
+        <!-- 사이드바 메뉴 -->
+        <div id="side">
+            <div id="namecard">
+                <img src="media/goyang.jpg" alt="#">
+                <h1>Kang Haerin</h1>
+                <p>프로그래밍 재밌다</p>
+            </div>
+            <div id="detail">
+                <p>Incheon, Korea</p>
+                <p>test@naver.com</p>
+            </div>
+            <div id="sns">
+                <h2>SNS</h2>
+                <h3><a href="#">클릭!</a></h3>
+            </div>
+
+            <!-- 시간 및 모드 버튼 -->
+            <div id="time"></div>
+            <button id="theme" onclick="fnMode()">Dark Mode</button>
+        </div>
+
+        <!-- 내용 -->
+        <div id="contents">
+            <!-- 메뉴 -->
+            <div id="menu">
+                <a href="#" onclick="showSection('about')">자기소개</a>
+                <a href="#" onclick="showSection('experience')">Experience</a>
+                <a href="#" onclick="showSection('skills')">보유 기술</a>
+                <a href="#" onclick="showSection('education')">Education</a>
+            </div>
+
+            <!-- 자기소개 -->
+            <section id="about">
+                <h2 class="subtitle">자기소개</h2>
+                <p><mark>프로그래밍</mark>에 관심이 많습니다. <br>현재 열심히 공부하며 코딩 중!</p>
+            </section>
+
+            <!-- 경력 -->
+            <section id="experience">
+                <h2 class="subtitle">Experience</h2>
+                <ul>
+                    <li>프론트엔드
+                        <ul>
+                            <li>HTML/CSS/JAVASCRIPT </li>
+                            <li>웹 페이지 잘 만든다 </li>
+                            <li>다 잘함</li> 
+                        </ul>
+                    </li>
+                    <li>백엔드
+                        <ul>
+                            <li>자바 잘함 </li>
+                            <li>오라클 더 잘함</li>
+                        </ul>                        
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 보유 기술 -->
+            <section id="skills">
+                <h2 class="subtitle">보유 기술</h2>
+                <ul>
+                    <li>자바 </li>
+                    <li>오라클</li>
+                </ul>
+            </section>
+
+            <!-- 학력 -->
+            <section id="education">
+                <h2 class="subtitle">Education</h2>
+                <table>
+                    <caption>학력 사항</caption>
+                    <thead>
+                        <tr>
+                            <th>출신학교</th>
+                            <th>전공</th>
+                            <th>기간</th>
+                            <th>구분</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>좋은대학교</td>
+                            <td>좋은학과</td>
+                            <td>2010.3 ~ 2013.2</td>
+                            <td>졸업</td>
+                        </tr>
+                        <tr>
+                            <td>꽤좋은고등학교</td>
+                            <td> - </td>
+                            <td>2007.3 ~ 2009.2</td>
+                            <td>졸업</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        setInterval(() => {
+            let datetime = new Date();
+            let time = datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds();
+            let obj = document.querySelector("#time");
+            obj.innerHTML = time;
+        }, 1000);
+
+        function fnMode() {
+            let body = document.body;
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+
+            let button = document.getElementById("theme");
+            if (document.body.classList.contains("dark-mode")) {
+                button.innerText = "Light Mode";
+            } else {
+                button.innerText = "Dark Mode";
+            }
+        }
+
+        function showSection(sectionId) {
+            // 모든 섹션을 숨김
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // 클릭한 섹션만 표시
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+        }
+
+        // 초기 상태로 자기소개 섹션을 표시
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('about');
+        });
+    </script>
+</body>
+</html>
